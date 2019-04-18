@@ -44,37 +44,39 @@
                 <div class="divider"></div>
                 <br>
                 <div class="section">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate">
-                            <label for="first_name">Nome</label>
+                    <form action="insereLocadora" method="get"> 
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="first_name" type="text" class="validate">
+                                <label for="first_name">Nome</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input  placeholder="email@email.com" id="email" type="text" class="validate">
+                                <label for="email">Email</label>
+                            </div>
                         </div>
-                        <div class="input-field col s6">
-                            <input  placeholder="email@email.com" id="email" type="text" class="validate">
-                            <label for="email">Email</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Senha</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Senha</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="cnpj" type="text" class="validate">
+                                <label for="cpf">CNPJ</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="cidade" type="text" class="validate">
+                                <label for="cpf">Cidade</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="cnpj" type="text" class="validate">
-                            <label for="cpf">CNPJ</label>
+                        <div class="row center-align">
+                            <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
-                        <div class="input-field col s6">
-                            <input id="cidade" type="text" class="validate">
-                            <label for="cpf">Cidade</label>
-                        </div>
-                    </div>
-                    <div class="row center-align">
-                        <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Submit
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
