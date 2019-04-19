@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Guga Bot
  */
-@WebServlet(urlPatterns = "/")
+@WebServlet(urlPatterns = "/insereLocadora")
 public class LocadoraController extends HttpServlet {
 
     private LocadoraDAO dao;
@@ -76,6 +76,6 @@ public class LocadoraController extends HttpServlet {
 
         Locadora locadora = new Locadora(nome, email, senha, cnpj, cidade);
         dao.insert(locadora);
-        response.sendRedirect("lista");
+        response.sendRedirect("index.html");
     }
 }
