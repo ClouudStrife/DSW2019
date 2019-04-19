@@ -44,51 +44,53 @@
                 <div class="divider"></div>
                 <br>
                 <div class="section">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="first_name" type="text" class="validate">
-                            <label for="first_name">Nome</label>
+                    <form action="insereCliente" method="get">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="nome" id="first_name" type="text" class="validate">
+                                <label for="first_name">Nome</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input  name="email" placeholder="email@email.com" id="email" type="text" class="validate">
+                                <label for="email">Email</label>
+                            </div>
                         </div>
-                        <div class="input-field col s6">
-                            <input  placeholder="email@email.com" id="email" type="text" class="validate">
-                            <label for="email">Email</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="senha" id="password" type="password" class="validate">
+                                <label for="password">Senha</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Senha</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="telefone" placeholder="(DDD) 9999-9999" id="phone" type="tel" class="validate">
+                                <label for="phone">Telefone</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input name="cpf" id="cpf" type="text" class="validate">
+                                <label for="cpf">CPF</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="(DDD) 9999-9999" id="phone" type="tel" class="validate">
-                            <label for="phone">Telefone</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="nasc" id="birthDate" type="text" class="datepicker">
+                                <label for="birthDate">Data de nascimento</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <select name="sexo">
+                                    <option value="" disabled selected>Selecione sua opção</option>
+                                    <option value="1">M</option>
+                                    <option value="2">F</option>
+                                </select>
+                                <label>Sexo</label>
+                            </div>
                         </div>
-                        <div class="input-field col s6">
-                            <input id="cpf" type="text" class="validate">
-                            <label for="cpf">CPF</label>
+                        <div class="row center-align">
+                            <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="birthDate" type="text" class="datepicker">
-                            <label for="birthDate">Data de nascimento</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <select>
-                                <option value="" disabled selected>Selecione sua opção</option>
-                                <option value="1">Masculino</option>
-                                <option value="2">Feminino</option>
-                            </select>
-                            <label>Sexo</label>
-                        </div>
-                    </div>
-                    <div class="row center-align">
-                        <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Submit
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -100,7 +102,7 @@
 
             document.addEventListener('DOMContentLoaded', function () {
                 var elems = document.querySelectorAll('.datepicker');
-                var instances = M.Datepicker.init(elems, {});
+                var instances = M.Datepicker.init(elems, { format: 'yyyy-mm-dd' });
             });
 
             document.addEventListener('DOMContentLoaded', function () {

@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LocadoraController extends HttpServlet {
 
     private LocadoraDAO dao;
-
+    
     @Override
     public void init() {
         dao = new LocadoraDAO();
@@ -38,8 +38,9 @@ public class LocadoraController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            
             try{
-                insere(request, response);
+                insereLocadora(request, response);
             }
             catch(RuntimeException | IOException | ServletException e) {
             throw new ServletException(e);
@@ -65,7 +66,7 @@ public class LocadoraController extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void insere(HttpServletRequest request, HttpServletResponse response)
+    private void insereLocadora(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         String nome = request.getParameter("nome");
@@ -79,3 +80,4 @@ public class LocadoraController extends HttpServlet {
         response.sendRedirect("index.html");
     }
 }
+
