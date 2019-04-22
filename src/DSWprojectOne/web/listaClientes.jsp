@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
         <!--Import Google Icon Font-->
@@ -19,24 +20,35 @@
         <div class="container">
             <h3 class="center-align">Clientes cadastrados</h3>
             <div class="row">
-                <div class="col s8 offset-s2">
+                <div class="col s10 offset-s1">
                     <ul class="collection">
-                        <li class="collection-item avatar">
-                            <div class="row">
-                                <div class="col s8">
-                                    <i class="material-icons circle">account_circle</i>
-                                    <span class="title">Nome</span>
-                                    <p>Email <br>
-                                        ...
-                                    </p>  
-                                </div>
+                        <c:forEach items="${requestScope.listaCliente}" var="cliente">
+                            <li class="collection-item">
+                                <div class="row">
+                                    <div class="col s8">
+                                        <div class="row">
+                                            <div class="col s7 ">
 
-                                <div class="col s4 center-align">
-                                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">edit</i></a>
-                                    <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
-                                </div>             
-                            </div>
-                        </li> 
+                                                <h5 class="">${cliente.nome}</h5>
+                                                <p>${cliente.email}<br>
+                                                    ${cliente.CPF}
+                                                </p> 
+                                            </div>
+                                            <div class="col s5">
+                                                <p>${cliente.nasc} <br>
+                                                    ${cliente.telefone}
+                                                </p>
+                                            </div>
+                                        </div>                                       
+                                    </div>
+
+                                    <div class="col s4 center-align ">
+                                        <a class="btn-floating waves-effect waves-light red"><i class="material-icons">edit</i></a>
+                                        <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                                    </div>             
+                                </div>
+                            </li> 
+                        </c:forEach>
                     </ul>
                 </div>
             </div>

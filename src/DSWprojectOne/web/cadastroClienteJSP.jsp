@@ -35,7 +35,7 @@
                 <li><div class="divider"></div></li>
                 <li><a class="subheader">Subheader</a></li>
                 <li><a href="#"><i class="material-icons">list</i>Listar locadoras</a></li>
-                <li><a href="listaClientes.jsp"><i class="material-icons">list</i>Listar clientes</a></li>
+                <li><a href="getClienteServlet"><i class="material-icons">list</i>Listar clientes</a></li>
             </ul>
 
             <div class="container">
