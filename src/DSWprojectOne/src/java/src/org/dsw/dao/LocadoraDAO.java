@@ -20,6 +20,7 @@ import java.util.List;
  * @author Guga Bot
  */
 public class LocadoraDAO {
+
     public LocadoraDAO() {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -53,5 +54,64 @@ public class LocadoraDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Locadora get(String cnpj) {
+        Locadora locadora = null;
+        String sql = "SELECT * FROM locadoras WHERE cnpj = ?";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);;
+
+            statement.setString(1,cnpj);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                String email = resultSet.getString("email");
+                String CNPJ = resultSet.getString("CNPJ");
+                String senha = resultSet.getString("senha");
+                String nome = resultSet.getString("nome");
+                String cidade = resultSet.getString("cidade");
+
+                locadora = new Locadora(nome, email, senha, CNPJ, cidade);
+            }
+            
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return locadora;
+    }
+
+    public List<Locadora> getAll() {
+
+        List<Locadora> listaLocadora = new ArrayList<>();
+
+        String sql = "SELECT * FROM locadoras";
+
+        try {
+            Connection conn = this.getConnection();
+            Statement statement = conn.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()) {
+                String email = resultSet.getString("email");
+                String CNPJ = resultSet.getString("CNPJ");
+                String senha = resultSet.getString("senha");
+                String nome = resultSet.getString("nome");
+                String cidade = resultSet.getString("cidade");
+
+                Locadora locadora = new Locadora(nome, email, senha, CNPJ, cidade);
+                listaLocadora.add(locadora);
+            }
+
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaLocadora;
     }
 }

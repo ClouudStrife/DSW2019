@@ -31,10 +31,10 @@
                 <h4  class="center-align">Menu</h4>
                 <li><a href="cadastroClienteJSP.jsp"><i class="material-icons">face</i>Cadastrar cliente</a></li>
                 <li><a href="cadastroLocadoraJSP.jsp"><i class="material-icons">home</i>Cadastrar locadora</a></li>
-                <li><a href="#!"><i class="material-icons">directions_bike</i>Cadastrar locação   </a></li>
+                <li><a href=""><i class="material-icons">directions_bike</i>Cadastrar locação   </a></li>
                 <li><div class="divider"></div></li>
                 <li><a class="subheader">Subheader</a></li>
-                <li><a href="#"><i class="material-icons">list</i>Listar locadoras</a></li>
+                <li><a href="getServlet"><i class="material-icons">list</i>Listar locadoras</a></li>
             </ul>
 
             <div class="container">
