@@ -23,28 +23,25 @@
                 <div class="col s10 offset-s1">
                     <ul class="collection">
                         <c:forEach items="${requestScope.listaCliente}" var="cliente">
-                            <li class="collection-item">
+                            <li class="collection-item z-depth-1">
                                 <div class="row">
                                     <div class="col s8">
                                         <div class="row">
                                             <div class="col s7 ">
-
-                                                <h5 class="">${cliente.nome}</h5>
-                                                <p>${cliente.email}<br>
-                                                    ${cliente.CPF}
-                                                </p> 
+                                                <h4 class="">${cliente.nome}</h4>
+                                                <h6>${cliente.email}<h6>                                                  
                                             </div>
                                             <div class="col s5">
-                                                <p>${cliente.nasc} <br>
-                                                    ${cliente.telefone}
-                                                </p>
+                                                <h6><b>CPF: <br></b> ${cliente.CPF}</h6>
+                                                <h6><b>Telefone: <br></b> ${cliente.telefone}</h6>
+                                                <h6><b>Data de Nascimento: <br></b> ${cliente.nasc}</h6>
                                             </div>
                                         </div>                                       
                                     </div>
 
                                     <div class="col s4 center-align ">
                                         <a class="btn-floating waves-effect waves-light red"><i class="material-icons">edit</i></a>
-                                        <a class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                                        <a href="deleteClienteServlet?cpf=<c:out value='${cliente.CPF}' />"  class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
                                     </div>             
                                 </div>
                             </li> 
