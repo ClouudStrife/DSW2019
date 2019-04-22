@@ -14,6 +14,12 @@ public class Locacao {
     private String cnpjLocadora;
     private String dateHour;
     
+    public Locacao(String cpfCliente, String cnpjLocadora, String dateHour){
+        this.cpfCliente = cpfCliente;
+        this.cnpjLocadora = cnpjLocadora;
+        this.dateHour = dateHour;
+    }
+    
     public String getCpfCliente(){
         return this.cpfCliente;
     }

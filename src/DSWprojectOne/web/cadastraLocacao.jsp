@@ -19,6 +19,7 @@
         <div class="container">
             <h3 class="center-align">Alugar bicicleta na ${locadora.nome}</h3>
             <form action="registraLocacao" method="get">
+                <input type="hidden" name="cnpj" value="${locadora.CNPJ}">
                 <div class="row">
                     <div class="input-field col s6 offset-s3">
                         <input name="cpf" id="cpf" type="text" class="validate">
@@ -46,11 +47,22 @@
 
 
                 <div class="row center-align">
-                    <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Submit
+                    <button href="#modal" class="btn center-align waves-effect waves-light red lighten-1 center-align modal-trigger" type="" name="">Submit
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
 
+                <!-- Modal Structure -->
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <h4>Atenção !</h4>
+                        <p>Tem certeza que deseja alugar 1 bicicleta na ${locadora.nome} ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button  class="btn waves-effect waves-green btn-flat" type="submit" name="action">Aceitar</button>
+                        <a href="#" class="btn modal-close waves-red btn-flat">Recusar</a>
+                    </div>
+                </div>
             </form>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
@@ -61,6 +73,11 @@
                 document.addEventListener('DOMContentLoaded', function () {
                     var elems = document.querySelectorAll('.datepicker');
                     var instances = M.Datepicker.init(elems, {format: 'yyyy-mm-dd'});
+                });
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    var elems = document.querySelectorAll('.modal');
+                    var instances = M.Modal.init(elems, {});
                 });
             </script>
             <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

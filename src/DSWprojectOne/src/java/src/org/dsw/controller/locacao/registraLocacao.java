@@ -5,6 +5,8 @@
  */
 package src.org.dsw.controller.locacao;
 
+import src.org.dsw.model.Locacao;
+import src.org.dsw.dao.LocacaoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,6 +22,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "registraLocacao", urlPatterns = {"/registraLocacao"})
 public class registraLocacao extends HttpServlet {
 
+    
+    private LocacaoDAO dao;
+    
+    @Override
+    public void init() {
+        dao = new LocacaoDAO();
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -58,7 +67,7 @@ public class registraLocacao extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+            insereLocacao(request, response);
     }
 
     /**
@@ -84,5 +93,18 @@ public class registraLocacao extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    
+    private void insereLocacao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String cpfCliente = request.getParameter("cpf");
+        String cnpjLocadora = request.getParameter("cnpj");
+        String dateHour = request.getParameter("data");
+        dateHour += " " + request.getParameter("hr");
+        dateHour +=":00.0";
+        
+        Locacao locacao = new Locacao(cpfCliente, cnpjLocadora, dateHour);
+        dao.insert(locacao);
+        response.sendRedirect("index.html");
+    }
 }
