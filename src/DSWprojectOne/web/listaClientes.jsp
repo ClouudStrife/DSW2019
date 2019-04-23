@@ -35,7 +35,7 @@
                                             </div>
                                             <div class="col s5">
                                                 <h6><b>CPF: <br></b> ${cliente.CPF}</h6>
-                                                <h6><b><f:message key="phone"/>: <br></b> ${cliente.telefone}</h6>
+                                                <h6><b><f:message key="telefone"/>: <br></b> ${cliente.telefone}</h6>
                                                 <h6><b><f:message key="data_nascimento"/>: <br></b> ${cliente.nasc}</h6>
                                             </div>
                                         </div>                                       

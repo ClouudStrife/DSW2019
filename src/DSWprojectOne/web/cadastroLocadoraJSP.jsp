@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<f:bundle basename="i18n.messages">
 <html>
     <head>
         <!--Import Google Icon Font-->
@@ -30,16 +32,16 @@
             <ul id="slide-out" class="sidenav">
                 <h4  class="center-align">Menu</h4>
                 <li><a href="cadastroClienteJSP.jsp"><i class="material-icons">face</i><f:message key="cadastrar_cliente"/></a></li>
-                <li><a href="cadastroLocadoraJSP.jsp"><i class="material-icons">home</i>Cadastrar locadora</a></li>
-                <li><a href=""><i class="material-icons">directions_bike</i>Cadastrar locação   </a></li>
+                <li><a href="cadastroLocadoraJSP.jsp"><i class="material-icons">home</i><f:message key="cadastrar_locadora"/></a></li>
+                <li><a href=""><i class="material-icons">directions_bike</i><f:message key="cadastrar_locacoes"/></a></li>
                 <li><div class="divider"></div></li>
                 <li><a class="subheader">Subheader</a></li>
-                <li><a href="getServlet"><i class="material-icons">list</i>Listar locadoras</a></li>
+                <li><a href="getServlet"><i class="material-icons">list</i><f:message key="listar_locadoras"/></a></li>
             </ul>
 
             <div class="container">
                 <div class="section">
-                    <h3 class="center-align">Cadastro Locadora</h3>
+                    <h3 class="center-align"><f:message key="cadastro_locadora"/></h3>
                 </div>
                 <div class="divider"></div>
                 <br>
@@ -48,17 +50,17 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <input name="nome" id="first_name" type="text" class="validate">
-                                <label for="first_name">Nome</label>
+                                <label for="first_name"><f:message key="nome"/></label>
                             </div>
                             <div class="input-field col s6">
                                 <input name="email" placeholder="email@email.com" id="email" type="text" class="validate">
-                                <label for="email">Email</label>
+                                <label for="email">E-mail</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="senha" id="password" type="password" class="validate">
-                                <label for="password">Senha</label>
+                                <label for="password"><f:message key="senha"/></label>
                             </div>
                         </div>
                         <div class="row">
@@ -68,11 +70,11 @@
                             </div>
                             <div class="input-field col s6">
                                 <input name="cidade" id="cidade" type="text" class="validate">
-                                <label for="cpf">Cidade</label>
+                                <label for="cpf"><f:message key="cidade"/></label>
                             </div>
                         </div>
                         <div class="row center-align">
-                            <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Submit
+                            <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action"><f:message key="submit"/>
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -99,3 +101,4 @@
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     </body>
 </html>
+</f:bundle>

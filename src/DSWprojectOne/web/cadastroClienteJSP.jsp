@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<f:bundle basename="i18n.messages">
 <html>
     <head>
         <!--Import Google Icon Font-->
@@ -30,18 +32,18 @@
             </nav>
             <ul id="slide-out" class="sidenav">
                 <h4  class="center-align">Menu</h4>
-                <li><a href="#!"><i class="material-icons">face</i>Cadastrar cliente</a></li>
-                <li><a href="cadastroLocadoraJSP.jsp"><i class="material-icons">home</i>Cadastrar locadora</a></li>
-                <li><a href="#!"><i class="material-icons">directions_bike</i>Cadastrar locação   </a></li>
+                <li><a href="#!"><i class="material-icons">face</i><f:message key="cadastrar_cliente"/></a></li>
+                <li><a href="cadastroLocadoraJSP.jsp"><i class="material-icons">home</i><f:message key="cadastrar_locadora"/></a></li>
+                <li><a href="#!"><i class="material-icons">directions_bike</i><f:message key="cadastrar_locacao"/></a></li>
                 <li><div class="divider"></div></li>
                 <li><a class="subheader">Subheader</a></li>
-                <li><a href="#"><i class="material-icons">list</i>Listar locadoras</a></li>
-                <li><a href="getClienteServlet"><i class="material-icons">list</i>Listar clientes</a></li>
+                <li><a href="#"><i class="material-icons">list</i><f:message key="listar_locadoras"/></a></li>
+                <li><a href="getClienteServlet"><i class="material-icons">list</i><f:message key="listar_clientes"/></a></li>
             </ul>
 
             <div class="container">
                 <div class="section">
-                    <h3 class="center-align">Cadastro Cliente</h3>
+                    <h3 class="center-align"><f:message key="cadastro_cliente"/></h3>
                 </div>
                 <div class="divider"></div>
                 <br>
@@ -56,21 +58,21 @@
                                 <div class="input-field col s6">
                                     <c:if test="${cliente != null}">
                                         <input name="nome" id="first_name" type="text" class="validate" value="${cliente.nome}">
-                                        <label for="first_name">Nome</label>
+                                        <label for="first_name"><f:message key="nome"/></label>
                                     </c:if>
                                     <c:if test="${cliente == null}">
                                         <input name="nome" id="first_name" type="text" class="validate">
-                                        <label for="first_name">Nome</label>
+                                        <label for="first_name"><f:message key="nome"/></label>
                                     </c:if>
                                 </div>
                                 <div class="input-field col s6">
                                     <c:if test="${cliente != null}">
                                         <input  name="email" placeholder="email@email.com" id="email" type="text" class="validate" value="${cliente.email}">
-                                        <label for="email">Email</label>
+                                        <label for="email">E-mail</label>
                                     </c:if>
                                     <c:if test="${cliente == null}">
                                         <input  name="email" placeholder="email@email.com" id="email" type="text" class="validate">
-                                        <label for="email">Email</label>
+                                        <label for="email">E-mail</label>
                                     </c:if>
                                 </div>
                             </div>
@@ -82,7 +84,7 @@
                                     </c:if>
                                     <c:if test="${cliente == null}">
                                         <input name="senha" id="password" type="password" class="validate">
-                                        <label for="password">Senha</label>
+                                        <label for="password"><f:message key="senha"/></label>
                                     </c:if>
                                 </div>
                             </div>
@@ -90,11 +92,11 @@
                                 <div class="input-field col s6">
                                     <c:if test="${cliente != null}">
                                         <input name="telefone" placeholder="(DDD) 9999-9999" id="phone" type="tel" class="validate" value="${cliente.telefone}">
-                                        <label for="phone">Telefone</label>
+                                        <label for="phone"><f:message key="telefone"/></label>
                                     </c:if>
                                     <c:if test="${cliente == null}">
                                         <input name="telefone" placeholder="(DDD) 9999-9999" id="phone" type="tel" class="validate">
-                                        <label for="phone">Telefone</label>
+                                        <label for="phone"><f:message key="telefone"/></label>
                                     </c:if>
                                 </div>
                                 <div class="input-field col s6">
@@ -112,11 +114,11 @@
                                 <div class="input-field col s6">
                                     <c:if test="${cliente != null}">
                                         <input name="nasc" id="birthDate" type="text" class="datepicker" value="${cliente.nasc}">
-                                        <label for="birthDate">Data de nascimento</label>
+                                        <label for="birthDate"><f:message key="data_nascimento"/></label>
                                     </c:if>
                                     <c:if test="${cliente == null}">
                                         <input name="nasc" id="birthDate" type="text" class="datepicker">
-                                        <label for="birthDate">Data de nascimento</label>
+                                        <label for="birthDate"><f:message key="data_nascimento"/></label>
                                     </c:if>
                                 </div>
                                 <div class="input-field col s6">
@@ -129,12 +131,12 @@
                                     </c:if>
                                     <c:if test="${cliente == null}">
                                         <select name="sexo">
-                                            <option value="" disabled selected>Selecione sua opção</option>
+                                            <option value="" disabled selected><f:message key="selecione_sua_opcao"/></option>
                                             <option value="1">M</option>
                                             <option value="2">F</option>
                                         </select>
                                     </c:if>
-                                    <label>Sexo</label>
+                                    <label><f:message key="sexo"/></label>
                                 </div>
                             </div>
                             <div class="row center-align">
@@ -172,3 +174,4 @@
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     </body>
 </html>
+</f:bundle>

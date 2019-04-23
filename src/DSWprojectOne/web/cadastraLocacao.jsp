@@ -6,6 +6,8 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<f:bundle basename="i18n.messages">
 <html>
     <head>
         <!--Import Google Icon Font-->
@@ -47,7 +49,7 @@
 
 
                 <div class="row center-align">
-                    <button href="#modal" class="btn center-align waves-effect waves-light red lighten-1 center-align modal-trigger" type="" name="">Submit
+                    <button href="#modal" class="btn center-align waves-effect waves-light red lighten-1 center-align modal-trigger" type="" name=""><f:message key="submit"/>
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
@@ -83,3 +85,4 @@
             <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     </body>
 </html>
+</f:bundle>
