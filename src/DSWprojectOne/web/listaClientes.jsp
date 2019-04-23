@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
+<f:bundle basename="i18n.mensagens"></f:bundle>
 <html>
     <head>
         <!--Import Google Icon Font-->
@@ -33,7 +35,7 @@
                                             </div>
                                             <div class="col s5">
                                                 <h6><b>CPF: <br></b> ${cliente.CPF}</h6>
-                                                <h6><b>Telefone: <br></b> ${cliente.telefone}</h6>
+                                                <h6><b><f:message key="phone"/>: <br></b> ${cliente.telefone}</h6>
                                                 <h6><b>Data de Nascimento: <br></b> ${cliente.nasc}</h6>
                                             </div>
                                         </div>                                       
