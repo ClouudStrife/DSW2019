@@ -22,8 +22,9 @@
             <%@ include file="components/header.html" %>
             <%@ include file="components/sideNav.html" %>
             <div class="container">
-                <h1 class="center-align"><f:message key="locadoras"/></h1>
-
+                <h2 class="center-align"><f:message key="locadoras"/></h2>
+                <br>
+                <blockquote>Buscar por cidade? </blockquote>
                 <c:if test="${empty requestScope.listaLocadoras}">
                     <h3> <f:message key="nao_ha_locadoras"/>! </h3>
                 </c:if>
