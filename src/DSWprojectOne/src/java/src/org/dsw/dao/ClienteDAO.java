@@ -154,6 +154,7 @@ public class ClienteDAO {
             statement.setString(5, cliente.getTelefone());
             statement.setString(6, cliente.getSexo());
             statement.setString(7, cliente.getNasc());
+            statement.setString(8, cliente.getCPF());
             statement.executeUpdate();
 
             statement.close();

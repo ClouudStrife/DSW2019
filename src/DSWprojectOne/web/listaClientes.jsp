@@ -42,7 +42,7 @@
                                     </div>
 
                                     <div class="col s4 center-align ">
-                                        <a href="updateServlet" class="btn-floating waves-effect waves-light red"><i class="material-icons">edit</i></a>
+                                        <a href="updateClienteServlet?cpf=<c:out value='${cliente.CPF}' />" class="btn-floating waves-effect waves-light red"><i class="material-icons">edit</i></a>
                                         <a href="deleteClienteServlet?cpf=<c:out value='${cliente.CPF}' />"  class="btn-floating waves-effect waves-light red"><i class="material-icons">delete</i></a>
                                     </div>             
                                 </div>

@@ -20,8 +20,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Guga Bot
  */
-@WebServlet(name = "updateServlet", urlPatterns = {"/updateServlet"})
+@WebServlet(name = "updateServlet", urlPatterns = {"/updateClienteServlet"})
 public class updateServlet extends HttpServlet {
+
+    private ClienteDAO clienteDAO;
+
+    @Override
+    public void init() {
+        clienteDAO = new ClienteDAO();
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -63,7 +70,7 @@ public class updateServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        atualizaCliente(request, response);
     }
 
     /**
@@ -78,11 +85,25 @@ public class updateServlet extends HttpServlet {
 
     private void apresentaForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ClienteDAO clienteDAO = new ClienteDAO();
         String cpf = request.getParameter("cpf");
         Cliente cliente = clienteDAO.getClient(cpf);
         RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroClienteJSP.jsp");
         request.setAttribute("cliente", cliente);
         dispatcher.forward(request, response);
+    }
+
+    private void atualizaCliente(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
+        String cpf = request.getParameter("cpf");
+        String nome = request.getParameter("nome");
+        String telefone = request.getParameter("telefone");
+        String sexo = request.getParameter("sexo");
+        String nasc = request.getParameter("nasc");
+
+        Cliente cliente = new Cliente(email, senha, cpf, nome, telefone, sexo, nasc);
+        clienteDAO.update(cliente);
+        response.sendRedirect("getClienteServlet");
     }
 }

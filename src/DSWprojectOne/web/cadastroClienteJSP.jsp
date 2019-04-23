@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,53 +46,110 @@
                 <div class="divider"></div>
                 <br>
                 <div class="section">
-                    <form action="insereCliente" method="get">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input name="nome" id="first_name" type="text" class="validate">
-                                <label for="first_name">Nome</label>
+                    <c:if test="${cliente != null}">
+                        <form action="updateClienteServlet" method="post">
+                        </c:if>
+                        <c:if test="${cliente == null}">
+                            <form action="insereCliente" method="get">
+                            </c:if>   
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <c:if test="${cliente != null}">
+                                        <input name="nome" id="first_name" type="text" class="validate" value="${cliente.nome}">
+                                        <label for="first_name">Nome</label>
+                                    </c:if>
+                                    <c:if test="${cliente == null}">
+                                        <input name="nome" id="first_name" type="text" class="validate">
+                                        <label for="first_name">Nome</label>
+                                    </c:if>
+                                </div>
+                                <div class="input-field col s6">
+                                    <c:if test="${cliente != null}">
+                                        <input  name="email" placeholder="email@email.com" id="email" type="text" class="validate" value="${cliente.email}">
+                                        <label for="email">Email</label>
+                                    </c:if>
+                                    <c:if test="${cliente == null}">
+                                        <input  name="email" placeholder="email@email.com" id="email" type="text" class="validate">
+                                        <label for="email">Email</label>
+                                    </c:if>
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input  name="email" placeholder="email@email.com" id="email" type="text" class="validate">
-                                <label for="email">Email</label>
+                            <div class="row">                           
+                                <div class="input-field col s12">
+                                    <c:if test="${cliente != null}">
+                                        <input name="senha" id="password" type="password" class="validate">
+                                        <label for="password">Nova Senha</label>
+                                    </c:if>
+                                    <c:if test="${cliente == null}">
+                                        <input name="senha" id="password" type="password" class="validate">
+                                        <label for="password">Senha</label>
+                                    </c:if>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="senha" id="password" type="password" class="validate">
-                                <label for="password">Senha</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <c:if test="${cliente != null}">
+                                        <input name="telefone" placeholder="(DDD) 9999-9999" id="phone" type="tel" class="validate" value="${cliente.telefone}">
+                                        <label for="phone">Telefone</label>
+                                    </c:if>
+                                    <c:if test="${cliente == null}">
+                                        <input name="telefone" placeholder="(DDD) 9999-9999" id="phone" type="tel" class="validate">
+                                        <label for="phone">Telefone</label>
+                                    </c:if>
+                                </div>
+                                <div class="input-field col s6">
+                                    <c:if test="${cliente != null}">
+                                        <input name="cpf" id="cpf" type="text" class="validate" value="${cliente.CPF}">
+                                        <label for="cpf">CPF</label>
+                                    </c:if>
+                                    <c:if test="${cliente == null}">
+                                        <input name="cpf" id="cpf" type="text" class="validate">
+                                        <label for="cpf">CPF</label>
+                                    </c:if>                              
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input name="telefone" placeholder="(DDD) 9999-9999" id="phone" type="tel" class="validate">
-                                <label for="phone">Telefone</label>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <c:if test="${cliente != null}">
+                                        <input name="nasc" id="birthDate" type="text" class="datepicker" value="${cliente.nasc}">
+                                        <label for="birthDate">Data de nascimento</label>
+                                    </c:if>
+                                    <c:if test="${cliente == null}">
+                                        <input name="nasc" id="birthDate" type="text" class="datepicker">
+                                        <label for="birthDate">Data de nascimento</label>
+                                    </c:if>
+                                </div>
+                                <div class="input-field col s6">
+                                    <c:if test="${cliente != null}">
+                                        <select name="sexo">
+                                            <option value="${cliente.sexo}" disabled selected>${cliente.sexo}</option>
+                                            <option value="1">M</option>
+                                            <option value="2">F</option>
+                                        </select>
+                                    </c:if>
+                                    <c:if test="${cliente == null}">
+                                        <select name="sexo">
+                                            <option value="" disabled selected>Selecione sua opção</option>
+                                            <option value="1">M</option>
+                                            <option value="2">F</option>
+                                        </select>
+                                    </c:if>
+                                    <label>Sexo</label>
+                                </div>
                             </div>
-                            <div class="input-field col s6">
-                                <input name="cpf" id="cpf" type="text" class="validate">
-                                <label for="cpf">CPF</label>
+                            <div class="row center-align">
+                                <c:if test="${cliente != null}">
+                                    <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Atualizar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </c:if>
+                                <c:if test="${cliente == null}">
+                                    <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Cadastrar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </c:if>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input name="nasc" id="birthDate" type="text" class="datepicker">
-                                <label for="birthDate">Data de nascimento</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <select name="sexo">
-                                    <option value="" disabled selected>Selecione sua opção</option>
-                                    <option value="1">M</option>
-                                    <option value="2">F</option>
-                                </select>
-                                <label>Sexo</label>
-                            </div>
-                        </div>
-                        <div class="row center-align">
-                            <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Submit
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </form>
+                        </form>
                 </div>
             </div>
         </div>
@@ -103,7 +161,7 @@
 
             document.addEventListener('DOMContentLoaded', function () {
                 var elems = document.querySelectorAll('.datepicker');
-                var instances = M.Datepicker.init(elems, { format: 'yyyy-mm-dd' });
+                var instances = M.Datepicker.init(elems, {format: 'yyyy-mm-dd'});
             });
 
             document.addEventListener('DOMContentLoaded', function () {
