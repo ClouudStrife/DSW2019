@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
-<f:bundle basename="i18n.mensagens"></f:bundle>
+<f:bundle basename="i18n.mensagens">
 <html>
     <head>
         <!--Import Google Icon Font-->
