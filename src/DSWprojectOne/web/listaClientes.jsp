@@ -20,7 +20,7 @@
     </head>
     <body>
         <div class="container">
-            <h3 class="center-align">Clientes cadastrados</h3>
+            <h3 class="center-align"><f:message key="clientes_cadastrados"/>Clientes cadastrados</h3>
             <div class="row">
                 <div class="col s10 offset-s1">
                     <ul class="collection">
@@ -36,7 +36,7 @@
                                             <div class="col s5">
                                                 <h6><b>CPF: <br></b> ${cliente.CPF}</h6>
                                                 <h6><b><f:message key="phone"/>: <br></b> ${cliente.telefone}</h6>
-                                                <h6><b>Data de Nascimento: <br></b> ${cliente.nasc}</h6>
+                                                <h6><b><f:message key="data_nascimento"/>: <br></b> ${cliente.nasc}</h6>
                                             </div>
                                         </div>                                       
                                     </div>
@@ -61,3 +61,4 @@
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     </body>
 </html>
+</f:bundle>

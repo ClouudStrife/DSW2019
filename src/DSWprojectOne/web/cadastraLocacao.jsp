@@ -17,30 +17,30 @@
     </head>
     <body>
         <div class="container">
-            <h3 class="center-align">Alugar bicicleta na ${locadora.nome}</h3>
+            <h3 class="center-align"><f:message key="alugar_bicicleta_na"/> ${locadora.nome}</h3>
             <form action="registraLocacao" method="get">
                 <input type="hidden" name="cnpj" value="${locadora.CNPJ}">
                 <div class="row">
                     <div class="input-field col s6 offset-s3">
                         <input name="cpf" id="cpf" type="text" class="validate">
-                        <label for="cpf">Digite seu CPF</label>
+                        <label for="cpf"><f:message key="digite_seu_cpf"/></label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s6">                
-                        Data da locação:
+                        <f:message key="data_locacao"/>:
                         <div class="input-field inline">
                             <input name="data" id="data" type="text" class="datepicker">
-                            <label for="data">Escolher data</label>
+                            <label for="data"><f:message key="escolher_data"/></label>
                         </div>
                     </div>
 
                     <div class="col s6">                
-                        Horário da locação:
+                        <f:message key="horario_da_locacao"/>:
                         <div class="input-field inline">
                             <input name="hr" id="hr" type="text" class="timepicker">
-                            <label for="hr">Escolher horário</label>
+                            <label for="hr"><f:message key="escolher_horario"/></label>
                         </div>
                     </div>             
                 </div>
@@ -55,12 +55,12 @@
                 <!-- Modal Structure -->
                 <div id="modal" class="modal">
                     <div class="modal-content">
-                        <h4>Atenção !</h4>
-                        <p>Tem certeza que deseja alugar 1 bicicleta na ${locadora.nome} ?</p>
+                        <h4><f:message key="atencao"/> !</h4>
+                        <p><f:message key="certeza_alugar"/> ${locadora.nome} ?</p>
                     </div>
                     <div class="modal-footer">
-                        <button  class="btn waves-effect waves-green btn-flat" type="submit" name="action">Aceitar</button>
-                        <a href="#" class="btn modal-close waves-red btn-flat">Recusar</a>
+                        <button  class="btn waves-effect waves-green btn-flat" type="submit" name="action"><f:message key="aceitar"/></button>
+                        <a href="#" class="btn modal-close waves-red btn-flat"><f:message key="recusar"/></a>
                     </div>
                 </div>
             </form>

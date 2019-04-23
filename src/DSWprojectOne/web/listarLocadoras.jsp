@@ -17,10 +17,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1 class="center-align">Locadoras</h1>
+        <h1 class="center-align"><f:message key="locadoras"/></h1>
 
         <c:if test="${empty requestScope.listaLocadoras}">
-            <h3> Não há locadoras! </h3>
+            <h3> <f:message key="nao_ha_locadoras"/>! </h3>
         </c:if>
         <c:if test="${!empty requestScope.listaLocadoras}">
             <div class="row">
@@ -34,8 +34,8 @@
                                 <a href="chamaForm?cnpj=<c:out value='${locadora.CNPJ}'/>" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                             </div>
                             <div class="card-content center-align">
-                                <p> Email: ${locadora.email} </p>
-                                <p> Cidade: ${locadora.cidade} </p>
+                                <p> E-mail: ${locadora.email} </p>
+                                <p> <f:message key="cidade"/>: ${locadora.cidade} </p>
                                 <p> CNPJ: ${locadora.CNPJ} </p>
 
                             </div>
