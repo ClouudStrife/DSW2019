@@ -18,6 +18,9 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%@ include file="components/header.html" %>
+        <%@ include file="components/sideNav.html" %>
+        <br>
         <div class="container">
             <h3 class="center-align"><f:message key="alugar_bicicleta_na"/> ${locadora.nome}</h3>
             <form action="registraLocacao" method="get">
@@ -30,7 +33,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col s6">                
+                    <div class="col s6">
+                        <i class="material-icons">date_range</i>
                         <f:message key="data_locacao"/>:
                         <div class="input-field inline">
                             <input name="data" id="data" type="text" class="datepicker">
@@ -39,6 +43,7 @@
                     </div>
 
                     <div class="col s6">                
+                        <i class="material-icons">timer</i>
                         <f:message key="horario_da_locacao"/>:
                         <div class="input-field inline">
                             <input name="hr" id="hr" type="text" class="timepicker">
@@ -82,7 +87,7 @@
                     var instances = M.Modal.init(elems, {});
                 });
             </script>
-            <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+            <%@ include file="components/scriptsMaterialize.html" %> 
     </body>
 </html>
 </f:bundle>

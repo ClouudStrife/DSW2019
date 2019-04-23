@@ -20,26 +20,8 @@
     </head>
     <body>
         <div class="">
-            <nav class="red darken-4">
-                <div class="nav-wrapper">
-                    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">JavaScript</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <ul id="slide-out" class="sidenav">
-                <h4  class="center-align">Menu</h4>
-                <li><a href="#!"><i class="material-icons">face</i><f:message key="cadastrar_cliente"/></a></li>
-                <li><a href="cadastroLocadoraJSP.jsp"><i class="material-icons">home</i><f:message key="cadastrar_locadora"/></a></li>
-                <li><a href="#!"><i class="material-icons">directions_bike</i><f:message key="cadastrar_locacao"/></a></li>
-                <li><div class="divider"></div></li>
-                <li><a class="subheader">Subheader</a></li>
-                <li><a href="#"><i class="material-icons">list</i><f:message key="listar_locadoras"/></a></li>
-                <li><a href="getClienteServlet"><i class="material-icons">list</i><f:message key="listar_clientes"/></a></li>
-            </ul>
+            <%@ include file="components/header.html" %>
+            <%@ include file="components/sideNav.html" %>
 
             <div class="container">
                 <div class="section">
