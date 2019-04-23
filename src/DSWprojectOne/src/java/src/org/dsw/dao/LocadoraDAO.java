@@ -99,10 +99,10 @@ public class LocadoraDAO {
                 
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
-                String cnpj = resultSet.getString("cnpj");
+                String CNPJ = resultSet.getString("cnpj");
                 String nome = resultSet.getString("nome");
                 
-                Locadora locadora = new Locadora(email, senha, cnpj, nome, cidade);
+                Locadora locadora = new Locadora(nome, email, senha, CNPJ, cidade);
                 ret.add(locadora);
             }
         }
