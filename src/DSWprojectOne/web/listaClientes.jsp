@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f" %>
-<f:bundle basename="i18n.mensagens">
+<f:bundle basename="i18n.messages">
 <html>
     <head>
         <!--Import Google Icon Font-->
@@ -20,7 +20,7 @@
     </head>
     <body>
         <div class="container">
-            <h3 class="center-align"><f:message key="clientes_cadastrados"/>Clientes cadastrados</h3>
+            <h3 class="center-align"><f:message key="clientes_cadastrados"/></h3>
             <div class="row">
                 <div class="col s10 offset-s1">
                     <ul class="collection">
