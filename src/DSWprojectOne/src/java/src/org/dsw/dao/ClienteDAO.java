@@ -57,6 +57,37 @@ public class ClienteDAO {
         }
     }
     
+    public Cliente getClient(String cpf){
+        Cliente cliente = null;
+        String sql = "SELECT * FROM clientes WHERE cpf = ?";
+        
+        try{
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            
+            statement.setString(1, cpf);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                String email = resultSet.getString("email");
+                String senha = resultSet.getString("senha");
+                String nome = resultSet.getString("nome");
+                String telefone = resultSet.getString("telefone");
+                String sexo = resultSet.getString("sexo");
+                String nasc = resultSet.getString("nasc");
+                
+                cliente = new Cliente(email, senha, cpf, nome, telefone, sexo, nasc);
+            }
+
+            resultSet.close();
+            statement.close();
+            conn.close();
+            
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cliente;
+    }
+    
     public List<Cliente> getAll() {
 
         List<Cliente> listaCliente = new ArrayList<>();
@@ -99,6 +130,30 @@ public class ClienteDAO {
             PreparedStatement statement = conn.prepareStatement(sql);
 
             statement.setString(1, cpf);
+            statement.executeUpdate();
+
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public void update(Cliente cliente) {
+        String sql = "UPDATE clientes SET email = ?, senha = ?, cpf = ?, nome = ?, telefone = ?, sexo = ?, nasc = ?";
+        sql += " WHERE cpf = ?";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+
+            statement.setString(1, cliente.getEmail());
+            statement.setString(2, cliente.getSenha());
+            statement.setString(3, cliente.getCPF());
+            statement.setString(4, cliente.getNome());
+            statement.setString(5, cliente.getTelefone());
+            statement.setString(6, cliente.getSexo());
+            statement.setString(7, cliente.getNasc());
             statement.executeUpdate();
 
             statement.close();
