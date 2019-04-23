@@ -25,6 +25,14 @@ public class Locadora {
         this.cidade = cidade;
     }
     
+    public Locadora(){
+        this.nome = "";
+        this.email = "";
+        this.senha = "";
+        this.cnpj = "";
+        this.cidade = "";
+    }
+    
     public void setNome(String nome){
         this.nome = nome;
     }

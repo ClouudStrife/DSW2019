@@ -24,34 +24,42 @@
             <div class="container">
                 <h2 class="center-align"><f:message key="locadoras"/></h2>
                 <br>
-                <blockquote>Buscar por cidade? </blockquote>
-                <c:if test="${empty requestScope.listaLocadoras}">
-                    <h3> <f:message key="nao_ha_locadoras"/>! </h3>
-                </c:if>
-                <c:if test="${!empty requestScope.listaLocadoras}">
-                    <div class="row">
-                        <c:forEach items="${requestScope.listaLocadoras}" var="locadora">
+                <div class="row center-align">
+                    <span>Buscar por cidade ?</span>
+                    <div class="input-field inline">  
+                        <form action="getServlet" method="get">
+                            <input name="cidade" id="cidade" type="text">       
+                            </div>
+                            <button class="btn-floating waves-effect waves-light red" type="submit"><i class="material-icons">search</i></button>
+                        </form>
+                    </div>
+                    <c:if test="${empty requestScope.listaLocadoras}">
+                        <h3 class="center-align"> <f:message key="nao_ha_locadoras"/>! </h3>
+                    </c:if>
+                    <c:if test="${!empty requestScope.listaLocadoras}">
+                        <div class="row">
+                            <c:forEach items="${requestScope.listaLocadoras}" var="locadora">
 
-                            <div class="col s12 m6 l4">
-                                <div class="card hoverable">
-                                    <div class="card-image">
-                                        <img src="imgs/img3.jpg">
-                                        <span class="card-title white-text">${locadora.nome}</span>
-                                        <a href="chamaForm?cnpj=<c:out value='${locadora.CNPJ}'/>" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">directions_bike</i></a>
-                                    </div>
-                                    <div class="card-content">
-                                        <p> E-mail: ${locadora.email} </p>
-                                        <p> <f:message key="cidade"/>: ${locadora.cidade} </p>
-                                        <p> CNPJ: ${locadora.CNPJ} </p>
+                                <div class="col s12 m6 l4">
+                                    <div class="card hoverable">
+                                        <div class="card-image">
+                                            <img src="imgs/img3.jpg">
+                                            <span class="card-title white-text">${locadora.nome}</span>
+                                            <a href="chamaForm?cnpj=<c:out value='${locadora.CNPJ}'/>" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">directions_bike</i></a>
+                                        </div>
+                                        <div class="card-content">
+                                            <p> E-mail: ${locadora.email} </p>
+                                            <p> <f:message key="cidade"/>: ${locadora.cidade} </p>
+                                            <p> CNPJ: ${locadora.CNPJ} </p>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-                </c:if>
-            </div>
-        <%@ include file="components/scriptsMaterialize.html" %>        
+                            </c:forEach>
+                        </div>
+                    </c:if>
+                </div>
+                <%@ include file="components/scriptsMaterialize.html" %>        
         </body>
     </html>
 </f:bundle>

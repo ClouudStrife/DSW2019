@@ -23,6 +23,13 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "getServlet", urlPatterns = {"/getServlet"})
 public class getServlet extends HttpServlet {
 
+    private LocadoraDAO dao;
+
+    @Override
+    public void init() {
+        dao = new LocadoraDAO();
+    }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,21 +41,24 @@ public class getServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String cidade = request.getParameter("cidade");
+        List<Locadora> todasLocadoras;
+
+        try {
             
-            List<Locadora> todasLocadoras;
-            
-            try{
-                LocadoraDAO dao = new LocadoraDAO();
+            if (cidade == null) {
                 todasLocadoras = dao.getAll();
-                request.setAttribute("listaLocadoras", todasLocadoras);
-                request.getRequestDispatcher("listarLocadoras.jsp").forward(request, response);
-                
-                
-            } catch(Exception e){
-                 e.printStackTrace();
-                request.setAttribute("mensagem", e.getLocalizedMessage());
+            } else {
+                todasLocadoras = dao.listarLocadoraPorCidade(cidade);
             }
-            
+            request.setAttribute("listaLocadoras", todasLocadoras);
+            request.getRequestDispatcher("listarLocadoras.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("mensagem", e.getLocalizedMessage());
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
