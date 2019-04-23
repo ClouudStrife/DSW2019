@@ -36,8 +36,8 @@ CREATE TABLE locacoes (
   cnpj_loc  varchar(255) NOT NULL,
   dia_hora  TIMESTAMP,
   CONSTRAINT Locacoes_PK_ID PRIMARY KEY (id),
-  CONSTRAINT Locacoes_FK_CPF FOREIGN KEY (cpf_cli) REFERENCES clientes(cpf),
-  CONSTRAINT Locacoes_FK_CNPJ FOREIGN KEY (cnpj_loc) REFERENCES locadoras(cnpj)
+  CONSTRAINT Locacoes_FK_CPF FOREIGN KEY (cpf_cli) REFERENCES clientes(cpf) ON DELETE CASCADE,
+  CONSTRAINT Locacoes_FK_CNPJ FOREIGN KEY (cnpj_loc) REFERENCES locadoras(cnpj) ON DELETE CASCADE
 );
 
 ----------------------------------
