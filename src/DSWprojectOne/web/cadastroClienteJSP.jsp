@@ -107,8 +107,8 @@
                                     <c:if test="${cliente != null}">
                                         <select name="sexo">
                                             <option value="${cliente.sexo}" disabled selected>${cliente.sexo}</option>
-                                            <option value="1">M</option>
-                                            <option value="2">F</option>
+                                            <option value="M">M</option>
+                                            <option value="F">F</option>
                                         </select>
                                     </c:if>
                                     <c:if test="${cliente == null}">
