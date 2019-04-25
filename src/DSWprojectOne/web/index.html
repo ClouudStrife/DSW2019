@@ -12,6 +12,13 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+		<p id="erro"></p>
         <a href="cadastroClienteJSP.jsp"> LINK </a>
-    </body>
+	</body>
+	<script>
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var c = url.searchParams.get("erro");
+		document.getElementById("erro").innerHTML = "Ocorreu um erro: " + c;
+	</script>
 </html>

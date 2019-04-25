@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4">Detalhes<i class="material-icons right">close</i></span>
+                                        <span class="card-title grey-text text-darken-4"><f:message key="detalhes"/><i class="material-icons right">close</i></span>
                                         <br>                                   
                                         <div class="row">
                                             <div class="col s6">

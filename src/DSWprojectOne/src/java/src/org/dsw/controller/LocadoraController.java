@@ -76,7 +76,13 @@ public class LocadoraController extends HttpServlet {
         String cidade = request.getParameter("cidade");
 
         Locadora locadora = new Locadora(nome, email, senha, cnpj, cidade);
-        dao.insert(locadora);
+		try {
+        	dao.insert(locadora);
+        } catch (SQLException e) {
+	        response.sendRedirect("index.html?error=" + e.getMessage());
+			System.out.println("Ocorreu um erro: " + e);
+			return;
+        }		
         response.sendRedirect("index.html");
     }
 }

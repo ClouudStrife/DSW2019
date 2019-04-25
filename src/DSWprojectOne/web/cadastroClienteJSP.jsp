@@ -62,7 +62,7 @@
                                 <div class="input-field col s12">
                                     <c:if test="${cliente != null}">
                                         <input name="senha" id="password" type="password" class="validate">
-                                        <label for="password">Nova Senha</label>
+                                        <label for="password"><f:message key="nova_senha"/></label>
                                     </c:if>
                                     <c:if test="${cliente == null}">
                                         <input name="senha" id="password" type="password" class="validate">
@@ -123,12 +123,12 @@
                             </div>
                             <div class="row center-align">
                                 <c:if test="${cliente != null}">
-                                    <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Atualizar
+                                    <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action"><f:message key="atualizar"/>
                                         <i class="material-icons right">send</i>
                                     </button>
                                 </c:if>
                                 <c:if test="${cliente == null}">
-                                    <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action">Cadastrar
+                                    <button class="btn center-align waves-effect waves-light red lighten-1 center-align" type="submit" name="action"><f:message key="cadastrar"/>
                                         <i class="material-icons right">send</i>
                                     </button>
                                 </c:if>

@@ -52,7 +52,7 @@
                                 </div>
                                 <br>
                                 <div class="row center-align">
-                                    <button href="#modal" class="btn center-align waves-effect waves-light red lighten-1 center-align modal-trigger" type="" name="">Alugar</button>
+                                    <button href="#modal" class="btn center-align waves-effect waves-light red lighten-1 center-align modal-trigger" type="" name=""><f:message key="alugar"/></button>
                                 </div>
                             </form>
                         </div>
