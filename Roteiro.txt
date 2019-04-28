@@ -1,0 +1,8 @@
+SGBD utilizado: Java DB (nome, user, senha) (SLB_DB, root, root)
+Executar script create_db.sql para criar e popular tabelas com exemplos
+Executar script CriaUsuarios.sql disponivel em br.ufscar.dc.dsw
+
+
+
+admin@admin admin - user/senha - logar como administrador
+user@user user - user/senha - logar como usuário

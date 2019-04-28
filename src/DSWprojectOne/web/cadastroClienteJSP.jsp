@@ -31,7 +31,7 @@
                 <br>
                 <div class="section">
                     <c:if test="${cliente != null}">
-                        <form action="updateClienteServlet" method="post">
+                        <form action="atualizaCliente" method="post">
                         </c:if>
                         <c:if test="${cliente == null}">
                             <form action="insereCliente" method="get">
@@ -114,8 +114,8 @@
                                     <c:if test="${cliente == null}">
                                         <select name="sexo">
                                             <option value="" disabled selected><f:message key="selecione_sua_opcao"/></option>
-                                            <option value="1">M</option>
-                                            <option value="2">F</option>
+                                            <option value="M">M</option>
+                                            <option value="F">F</option>
                                         </select>
                                     </c:if>
                                     <label><f:message key="sexo"/></label>
