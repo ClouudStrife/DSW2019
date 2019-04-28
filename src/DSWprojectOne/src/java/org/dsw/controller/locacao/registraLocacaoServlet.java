@@ -104,7 +104,13 @@ public class registraLocacaoServlet extends HttpServlet {
         dateHour +=":00.0";
         
         Locacao locacao = new Locacao(cpfCliente, cnpjLocadora, dateHour);
-        dao.insert(locacao);
+		try {
+        	dao.insert(locacao);
+        } catch (SQLException e) {
+	        response.sendRedirect("index.jsp?error=" + e.getMessage());
+			System.out.println("Ocorreu um erro: " + e);
+			return;
+        }
         response.sendRedirect("index.jsp");
     }
 }

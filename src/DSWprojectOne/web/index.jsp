@@ -16,6 +16,7 @@
                 <%@ include file="components/header.html" %>
                 <%@ include file="components/sideNav.html" %>
                 <div class="container">
+					<p id="erro"></p>
                     <div class="section white">
                         <div class="row container">
                             <h2 class="header">Locadora DSW1</h2>
@@ -87,5 +88,11 @@
             <%@ include file="components/scriptsMaterialize.html" %>
             <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
         </body>
+		<script>
+			var url_string = window.location.href;
+			var url = new URL(url_string);
+			var c = url.searchParams.get("erro");
+			document.getElementById("erro").innerHTML = "Ocorreu um erro: " + c;
+		</script>
     </html>
 </f:bundle>

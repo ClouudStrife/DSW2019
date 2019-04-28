@@ -49,7 +49,13 @@ public class insertClientServlet extends HttpServlet {
         
 
         Cliente cliente = new Cliente(email, senha, cpf, nome, telefone, sexo, nasc);
-        clienteDAO.insert(cliente);
+		try {
+        	clienteDAO.insert(cliente);
+        } catch (SQLException e) {
+	        response.sendRedirect("index.jsp?error=" + e.getMessage());
+			System.out.println("Ocorreu um erro: " + e);
+			return;
+        }
         response.sendRedirect("index.jsp");
     }
 }
