@@ -1,12 +1,25 @@
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <nav class="red darken-4">
     <div class="nav-wrapper">
-        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+
+        <sec:authorize access="hasRole('ADMIN')">
+            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+        </sec:authorize>
+
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
+            <li><a href="index.jsp">Menu</a></li>
+            <sec:authorize access="hasRole('USER')">
+                <li><a href="#">Minhas locacoes</a></li>
+                <li><a href="listarLocadoras">Alugar</a></li>
+            </sec:authorize>     
+            <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
+                <li><a href="logout">Logout</a></li>
+            </sec:authorize>
+            <sec:authorize access="isAnonymous()">
+                <li><a href="listarLocadoras">Locadoras</a></li>
+                <li><a href="login">Login</a></li>
+            </sec:authorize>          
         </ul>
     </div>
 </nav>
- 
+
